@@ -1,3 +1,14 @@
 # Information Security with HelmetJS
 
-This is the boilerplate for the Information Security lessons. Instructions for completing these lessons start at https://www.freecodecamp.org/learn/information-security/information-security-with-helmetjs/
+1. Install dependencies (if not done yet):
+'npm install'
+
+Make sure your package.json includes express and helmet. If not:
+'npm install express helmet'
+
+2. Run the app:
+'node app.js'
+
+3. View in browser:
+Open your browser and go to:
+'http://localhost:3000'
