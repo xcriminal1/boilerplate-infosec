@@ -7,6 +7,7 @@ app.use(helmet.ieNoOpen());
 app.use(helmet.hsts({
   maxAge: 7776000 //90 days
 }));
+app.use(helmet.noCache());
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.xssFilter());
 app.use(helmet.frameguard({ action: 'deny' }));
