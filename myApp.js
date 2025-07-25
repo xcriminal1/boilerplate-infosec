@@ -9,6 +9,12 @@ app.use(helmet.hsts({
 }));
 app.use(helmet.noCache());
 app.use(helmet.dnsPrefetchControl());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", 'trusted-cdn.com'],
+  }
+}));
 app.use(helmet.xssFilter());
 app.use(helmet.frameguard({ action: 'deny' }));
 app.use(helmet.hidePoweredBy());
