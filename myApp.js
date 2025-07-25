@@ -2,7 +2,16 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 app.use(helmet());
+app.use(helmet.noSniff());
+app.use(helmet.ieNoOpen());
+app.use(helmet.hsts({
+  maxAge: 7776000 //90 days
+}));
+app.use(helmet.dnsPrefetchControl());
+app.use(helmet.xssFilter());
+app.use(helmet.frameguard({ action: 'deny' }));
 app.use(helmet.hidePoweredBy());
+
 
 module.exports = app;
 const api = require('./server.js');
