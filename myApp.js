@@ -1,63 +1,11 @@
 const express = require('express');
+const helmet = require('helmet');
 const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-app.use(cors({ origin: '*' }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-// For parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// For parsing application/json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = app;
 const api = require('./server.js');
+app.use(helmet());
 app.use(express.static('public'));
-app.disable('strict-transport-security');
+// app.disable('strict-transport-security');
 app.use('/_api', api);
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
